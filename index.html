@@ -1,0 +1,121 @@
+<html>
+  <head>
+    <title>Welcome</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!--[if lte IE 9
+      ]><link rel="stylesheet" href="assets/css/ie9.css"
+    /><![endif]-->
+    <noscript
+      ><link rel="stylesheet" href="assets/css/noscript.css"
+    /></noscript>
+  </head>
+  <body>
+    <!-- Header -->
+    <header id="header">
+      <div class="logo">
+        <span class="icon fa-diamond"></span>
+      </div>
+      <div class="content">
+        <div class="inner">
+          <h1>Dimension</h1>
+          <p>
+            <!--[-->A fully responsive site template designed by
+            <a href="https://html5up.net">HTML5 UP</a> and released<!--]--><br />
+            <!--[-->for free under the
+            <a href="https://html5up.net/license">Creative Commons</a>
+            license.<!--]-->
+          </p>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#intro">Intro</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <!--<li><a href="#elements">Elements</a></li>-->
+        </ul>
+      </nav>
+    </header>
+
+    <style type="text/css">
+      .embeddedServiceHelpButton .helpButton .uiButton {
+        background-color: #ee3f3a;
+        font-family: "Arial", sans-serif;
+      }
+      .embeddedServiceHelpButton .helpButton .uiButton:focus {
+        outline: 1px solid #ee3f3a;
+      }
+    </style>
+
+    <script
+      type="text/javascript"
+      src="https://service.force.com/embeddedservice/5.0/esw.min.js"
+    ></script>
+    <script type="text/javascript">
+      var initESW = function (gslbBaseURL) {
+        embedded_svc.settings.displayHelpButton = true; //Or false
+        embedded_svc.settings.language = ""; //For example, enter 'en' or 'en-US'
+
+        //embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
+        //embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
+
+        //embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
+        //embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
+
+        // Settings for Chat
+        //embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
+        // Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
+        // Returns a valid button ID.
+        //};
+        //embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
+        //embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
+        //embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
+
+        embedded_svc.settings.enabledFeatures = ["LiveAgent"];
+        embedded_svc.settings.entryFeature = "LiveAgent";
+
+        embedded_svc.init(
+          "https://cloudwerx4-dev-ed.my.salesforce.com",
+          "https://chiring-developer-edition.ap18.force.com/customerchat",
+          gslbBaseURL,
+          "00D2y000000qlCZ",
+          "support_2",
+          {
+            baseLiveAgentContentURL:
+              "https://c.la2-c2-ukb.salesforceliveagent.com/content",
+            deploymentId: "5722y000000GsVV",
+            buttonId: "5732y000000PHym",
+            baseLiveAgentURL:
+              "https://d.la2-c2-ukb.salesforceliveagent.com/chat",
+            eswLiveAgentDevName: "support_2",
+            isOfflineSupportEnabled: false,
+          }
+        );
+      };
+
+      if (!window.embedded_svc) {
+        var s = document.createElement("script");
+        s.setAttribute(
+          "src",
+          "https://cloudwerx4-dev-ed.my.salesforce.com/embeddedservice/5.0/esw.min.js"
+        );
+        s.onload = function () {
+          initESW(null);
+        };
+        document.body.appendChild(s);
+      } else {
+        initESW("https://service.force.com");
+      }
+    </script>
+  </body>
+</html>
